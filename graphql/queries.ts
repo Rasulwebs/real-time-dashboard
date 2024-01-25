@@ -33,8 +33,6 @@ export const DASHBOARD_CALENDAR_UPCOMING_EVENTS_QUERY = gql`
   }
 `;
 
-
-
 export const DASHBOARD_LATEST_ACTIVITIES_AUDITS_QUERY = gql`
   query DashboardLatestActivitiesAudits(
     $filter: AuditFilter!
