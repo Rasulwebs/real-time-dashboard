@@ -33,6 +33,59 @@ export const DASHBOARD_CALENDAR_UPCOMING_EVENTS_QUERY = gql`
   }
 `;
 
+export const DAHBOARD_DEALS_CHART_QUERY = gql`
+query DashboardDealChart(
+  $filter DealStageFilter!
+  $sorting: [DealStageSort!]
+  $paging: OffsetPaging
+) {
+  delaStages(filter: $filter, sorting: $sorting, paging: $paging) {
+    # Get all deal stages
+    nodes {
+      id
+      title
+      # Get the sum of all this stage and group by 
+      closeDateMonth and closeDateYear 
+      delasAggregate {
+        groupBy {
+          closeDateMonth
+          closeDateYear
+        }
+        sum {
+          value
+        }
+      }
+    }
+  }
+}
+`;
+
+export const DAHBOARD_LATEST_ACTIVITIES_DEALS_QUERY = gql`
+  query DashboardLatestActivitiesDeals(
+    $filter: DealFilter!
+    $sorting: [DealSort!]
+    $paging: OffsetPaging
+  ) {
+    deals(filter: $filter, sorting: $sorting, paging: $paging) {
+      totalCount
+      nodes {
+        id
+        title
+        stage {
+          id
+          title
+        }
+        company {
+          id
+          name
+          avatarUrl
+        }
+        createdAt
+      }
+    }
+  }
+`;
+
 export const DASHBOARD_LATEST_ACTIVITIES_AUDITS_QUERY = gql`
   query DashboardLatestActivitiesAudits(
     $filter: AuditFilter!
