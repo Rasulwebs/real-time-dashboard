@@ -2,7 +2,7 @@ import gql from "graphql-tag";
 
 export const DASHBOARD_TOTAL_COUNTS_QUERY = gql`
   query DashboardTotalCounts {
-    compaines {
+    companies {
       totalCount
     }
     contacts {
@@ -34,30 +34,29 @@ export const DASHBOARD_CALENDAR_UPCOMING_EVENTS_QUERY = gql`
 `;
 
 export const DAHBOARD_DEALS_CHART_QUERY = gql`
-query DashboardDealChart(
-  $filter DealStageFilter!
-  $sorting: [DealStageSort!]
-  $paging: OffsetPaging
-) {
-  delaStages(filter: $filter, sorting: $sorting, paging: $paging) {
-    # Get all deal stages
-    nodes {
-      id
-      title
-      # Get the sum of all this stage and group by 
-      closeDateMonth and closeDateYear 
-      delasAggregate {
-        groupBy {
-          closeDateMonth
-          closeDateYear
-        }
-        sum {
-          value
+  query DashboardDealChart(
+    $filter: DealStageFilter!
+    $sorting: [DealStageSort!]
+    $paging: OffsetPaging
+  ) {
+    dealStages(filter: $filter, sorting: $sorting, paging: $paging) {
+      # Get all deal stages
+      nodes {
+        id
+        title
+        # Get the sum of all this stage and group by closeDateMonth and closeDateYear
+        dealsAggregate {
+          groupBy {
+            closeDateMonth
+            closeDateYear
+          }
+          sum {
+            value
+          }
         }
       }
     }
   }
-}
 `;
 
 export const DAHBOARD_LATEST_ACTIVITIES_DEALS_QUERY = gql`
@@ -124,15 +123,13 @@ export const COMPANIES_LIST_QUERY = gql`
     companies(filter: $filter, sorting: $sorting, paging: $paging) {
       totalCount
       nodes {
-        nodes {
-          id
-          name
-          avatarUrl
-          # Get the sum of all deals in this company
-          dealsAggregate {
-            sum {
-              value
-            }
+        id
+        name
+        avatarUrl
+        # Get the sum of all deals in this company
+        dealsAggregate {
+          sum {
+            value
           }
         }
       }
@@ -181,7 +178,7 @@ export const COMPANY_CONTACTS_TABLE_QUERY = gql`
 
 export const TASK_STAGES_QUERY = gql`
   query TaskStages(
-    $filter: TasksFilter!
+    $filter: TaskStageFilter!
     $sorting: [TaskStageSort!]
     $paging: OffsetPaging!
   ) {
