@@ -95,14 +95,14 @@ export type DashboardCalendarUpcomingEventsQuery = {
   };
 };
 
-export type DashboardDealChartQueryVariables = Types.Exact<{
+export type DashboardDealsChartQueryVariables = Types.Exact<{
   filter: Types.DealStageFilter;
   sorting?: Types.InputMaybe<Array<Types.DealStageSort> | Types.DealStageSort>;
   paging?: Types.InputMaybe<Types.OffsetPaging>;
 }>;
 
-export type DashboardDealChartQuery = {
-  dealStages: {
+export type DashboardDealsChartQuery = {
+  dealStages: Pick<Types.DealStageConnection, "totalCount"> & {
     nodes: Array<
       Pick<Types.DealStage, "id" | "title"> & {
         dealsAggregate: Array<{
@@ -197,7 +197,7 @@ export type CompanyContactsTableQuery = {
     nodes: Array<
       Pick<
         Types.Contact,
-        "id" | "name" | "avatarUrl" | "jobTitle" | "email" | "status"
+        "id" | "name" | "avatarUrl" | "jobTitle" | "email" | "phone" | "status"
       >
     >;
   };
@@ -239,13 +239,13 @@ export type TasksQuery = {
   };
 };
 
-export type TaskStageSelectQueryVariables = Types.Exact<{
+export type TaskStagesSelectQueryVariables = Types.Exact<{
   filter: Types.TaskStageFilter;
   sorting?: Types.InputMaybe<Array<Types.TaskStageSort> | Types.TaskStageSort>;
   paging: Types.OffsetPaging;
 }>;
 
-export type TaskStageSelectQuery = {
+export type TaskStagesSelectQuery = {
   taskStages: Pick<Types.TaskStageConnection, "totalCount"> & {
     nodes: Array<Pick<Types.TaskStage, "id" | "title">>;
   };
