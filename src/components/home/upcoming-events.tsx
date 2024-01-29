@@ -1,10 +1,10 @@
 import { CalendarOutlined } from '@ant-design/icons';
-import { Card } from 'antd';
+import { Card, List } from 'antd';
 import React, { useState } from 'react';
 import { Text } from '../text';
 
 const UpComingEvents = () => {
-    const [loading, setLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState(true);
 
 
     return (
@@ -22,7 +22,11 @@ const UpComingEvents = () => {
                 </div>
             }>
 
-            UpComingEvents
+            {isLoading ? (
+                <List></List>
+            ) : (
+                <List></List>
+            )}
         </Card>
     );
 };
