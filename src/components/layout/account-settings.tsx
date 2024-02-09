@@ -88,7 +88,7 @@ export const AccountSettings = ({ opened, setOpened, userId }: Props) => {
       >
         <Text strong>Account Settings</Text>
         <Button
-          type="text"
+          type='text'
           icon={<CloseOutlined />}
           onClick={() => closeModal()}
         />
@@ -99,9 +99,9 @@ export const AccountSettings = ({ opened, setOpened, userId }: Props) => {
         }}
       >
         <Card>
-          <Form {...formProps} layout="vertical">
+          <Form {...formProps} layout='vertical'>
             <CustomAvatar
-              shape="square"
+              shape='square'
               src={avatarUrl}
               name={getNameInitials(name || "")}
               style={{
@@ -110,17 +110,17 @@ export const AccountSettings = ({ opened, setOpened, userId }: Props) => {
                 marginBottom: "24px",
               }}
             />
-            <Form.Item label="Name" name="name">
-              <Input placeholder="Name" />
+            <Form.Item label='Name' name='name'>
+              <Input placeholder='Name' />
             </Form.Item>
-            <Form.Item label="Email" name="email">
-              <Input placeholder="email" />
+            <Form.Item label='Email' name='email'>
+              <Input placeholder='email' />
             </Form.Item>
-            <Form.Item label="Job title" name="jobTitle">
-              <Input placeholder="jobTitle" />
+            <Form.Item label='Job title' name='jobTitle'>
+              <Input placeholder='jobTitle' />
             </Form.Item>
-            <Form.Item label="Phone" name="phone">
-              <Input placeholder="Timezone" />
+            <Form.Item label='Phone' name='phone'>
+              <Input placeholder='Timezone' />
             </Form.Item>
           </Form>
           <SaveButton

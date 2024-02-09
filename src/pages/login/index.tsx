@@ -4,7 +4,7 @@ import { authCredentials } from "../../providers";
 export const Login = () => {
   return (
     <AuthPage
-      type="login"
+      type='login'
       // formProps={{ initialValues:{ email: "demo@refine.dev", password: "demodemo" } }}
       formProps={{ initialValues: authCredentials }}
     />

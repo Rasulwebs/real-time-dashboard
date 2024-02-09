@@ -5,8 +5,6 @@ type Props = AvatarProps & {
   name?: string;
 };
 
-
-
 const CustomAvatar = ({ name, style, ...rest }: Props) => {
   return (
     <AntdAvatar

@@ -34,7 +34,7 @@ const CurrentUser = () => {
         <Button
           style={{ textAlign: "left" }}
           icon={<SettingOutlined />}
-          type="text"
+          type='text'
           block
           onClick={() => setIsOpen(true)}
         >
@@ -47,7 +47,7 @@ const CurrentUser = () => {
   return (
     <>
       <Popover
-        placement="bottomRight"
+        placement='bottomRight'
         trigger={"click"}
         overlayInnerStyle={{ padding: 0 }}
         overlayStyle={{ zIndex: 999 }}
