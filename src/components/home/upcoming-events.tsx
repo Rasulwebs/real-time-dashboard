@@ -2,6 +2,8 @@ import { CalendarOutlined } from "@ant-design/icons";
 import { Card, List } from "antd";
 import React, { useState } from "react";
 import { Text } from "../text";
+import UpcomingEventsSkleton from "../skeleton/upcoming-events-skleton";
+import UpComingEventsSkleton from "../skeleton/upcoming-events-skleton";
 
 const UpComingEvents = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -31,7 +33,8 @@ const UpComingEvents = () => {
           dataSource={Array.from({ length: 5 }).map((_, index) => ({
             id: index,
           }))}
-        ></List>
+          renderItem={() => <UpComingEventsSkleton />}
+        />
       ) : (
         <List></List>
       )}

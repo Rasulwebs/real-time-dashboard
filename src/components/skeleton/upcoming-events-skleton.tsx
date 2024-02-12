@@ -1,7 +1,7 @@
 import { Badge, List, Skeleton } from "antd";
 import React, { FC } from "react";
 
-const UpcomingEventsSkleton: FC = () => {
+const UpComingEventsSkleton: FC = () => {
   return (
     <List.Item>
       <List.Item.Meta
@@ -10,8 +10,9 @@ const UpcomingEventsSkleton: FC = () => {
         description={
           <Skeleton.Button
             active
+            block
             style={{
-              width: "300px",
+              // width: "300px",
               marginTop: "8px",
               height: "16px",
             }}
@@ -22,4 +23,4 @@ const UpcomingEventsSkleton: FC = () => {
   );
 };
 
-export default UpcomingEventsSkleton;
+export default UpComingEventsSkleton;
